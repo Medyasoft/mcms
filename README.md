@@ -2,4 +2,4 @@ Medyasoft Content Management System
 
 Dokümantasyon sitesi
 
-[Dokümantasyon sitesi](/Medyasoft/mcms/wiki)
+[Dokümantasyon sitesi](https://github.com/Medyasoft/mcms/wiki)
