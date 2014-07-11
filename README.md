@@ -2,12 +2,14 @@
 
 
 
-Medyasoft Content Management System
+Unigate multipurpose development platform
 
-Medyasoft tarafından 2009 yılından bu yana geliştirilmekte olan MCMS'in dokümantasyon proje sayfasındasınız.
+Unigate is developing by Medyasoft since 2009.
 
-[Documentation >>](https://github.com/Medyasoft/mcms-public/wiki)
+You are on the documentation page of Unigate. Medyasoft updating documentation often.
 
-[Questions ve Feature Requests >>](https://github.com/Medyasoft/mcms-public/issues?state=open)
+[Documentation >>](https://github.com/Medyasoft/unigate-public/wiki)
+
+[Questions ve Feature Requests >>](https://github.com/Medyasoft/unigate-public/issues?state=open)
 
 
