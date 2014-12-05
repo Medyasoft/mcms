@@ -1,6 +1,6 @@
-This repository created for issues (bugs, feature requests)  and documentation.
+This repository created for issues (bugs, questions and feature requests) and documentation.
 
-Please dont share project names, customer names and passwords while post issues.
+**Please don't share project names, customer names and passwords while post issues.**
 
 UniGate is being developed since 2009, by [Medyasoft](http://www.medyasoft.com.tr/en)
 
