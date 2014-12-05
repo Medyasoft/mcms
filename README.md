@@ -6,6 +6,6 @@ UniGate is being developed since 2009, by [Medyasoft](http://www.medyasoft.com.t
 
 [Documentation >>](https://github.com/Medyasoft/unigate-public/wiki)
 
-[Bugs, Questions and Feature Requests >>](https://github.com/Medyasoft/unigate-public/issues)
+[Issues >>](https://github.com/Medyasoft/unigate-public/issues)
 
 
