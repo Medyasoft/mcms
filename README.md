@@ -1,4 +1,4 @@
-This repository created for issues (bugs, feature requests and documentation).
+This repository created for issues (bugs, feature requests)  and documentation.
 
 Please dont share project names, customer names and passwords while post issues.
 
