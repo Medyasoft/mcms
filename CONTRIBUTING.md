@@ -15,4 +15,5 @@ Issue girerken lütfen şunlara dikkat edin:
 - Yeni bir issue girerken lütfen detaylı olarak yazın. Örn bir hata alıyorsanız tam olarak hangi işlemleri yapınca hata alabiliriz bunu da adım adım yazın.
 
 **Gireceğiniz issue'ları heyecanla bekliyoruz**
+
 Unigate ürün ekibi
