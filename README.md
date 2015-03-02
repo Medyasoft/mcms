@@ -1,11 +1,7 @@
-This repository created for issues (bugs, questions and feature requests) and documentation.
+Bu repo, issue'lar ve dokümanlar için kullanılmaktadır.
 
-Please **don't** share project names, customer names and passwords while post issues.
+Issue eklerken lütfen proje/müşteri adı paylaşmayın, kullanıcı/parola bilgisi vermeyin.
 
-UniGate is being developed since 2009, by [Medyasoft](http://www.medyasoft.com.tr/en)
+[Dokümanlar >>](https://github.com/Medyasoft/unigate-public/wiki)
 
-[Documentation >>](https://github.com/Medyasoft/unigate-public/wiki)
-
-[Issues >>](https://github.com/Medyasoft/unigate-public/issues)
-
-
+[Issue'lar >>](https://github.com/Medyasoft/unigate-public/issues)
