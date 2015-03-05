@@ -1,0 +1,13 @@
+﻿{
+    "Values": [
+		{
+		  "Key": "key1",
+		  "Value": "value1-en"
+		},
+		{
+		  "Key": "key2",
+		  "Value": "key2-en"
+		}
+	]
+}
+

@@ -1,0 +1,14 @@
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Presentation\Mcms.UI\Modules\Plugins\AdminSiteRedirect\Views\Web.config
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Presentation\Mcms.UI\Modules\Plugins\AdminSiteRedirect\plugin.json
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Presentation\Mcms.UI\Modules\Plugins\AdminSiteRedirect\Languages\Globalizationen.json
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Presentation\Mcms.UI\Modules\Plugins\AdminSiteRedirect\Languages\Globalizationtr.json
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Presentation\Mcms.UI\Modules\Plugins\AdminSiteRedirect\Views\SiteRedirect\Index.cshtml
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Presentation\Mcms.UI\Modules\Plugins\AdminSiteRedirect\Views\SiteRedirect\Edit.cshtml
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Presentation\Mcms.UI\Modules\Plugins\AdminSiteRedirect\Views\SiteRedirect\_CreateOrUpdate.cshtml
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Presentation\Mcms.UI\Modules\Plugins\AdminSiteRedirect\Views\SiteRedirect\New.cshtml
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Presentation\Mcms.UI\Modules\Plugins\AdminSiteRedirect\Mcms.Plugins.AdminSiteRedirect.dll.config
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Presentation\Mcms.UI\Modules\Plugins\AdminSiteRedirect\Mcms.Plugins.AdminSiteRedirect.dll
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Presentation\Mcms.UI\Modules\Plugins\AdminSiteRedirect\Mcms.Plugins.AdminSiteRedirect.pdb
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Plugins\Mcms.Plugins.AdminSiteRedirect\obj\Debug\Mcms.Plugins.AdminSiteRedirect.csprojResolveAssemblyReference.cache
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Plugins\Mcms.Plugins.AdminSiteRedirect\obj\Debug\Mcms.Plugins.AdminSiteRedirect.dll
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate\Plugins\Mcms.Plugins.AdminSiteRedirect\obj\Debug\Mcms.Plugins.AdminSiteRedirect.pdb

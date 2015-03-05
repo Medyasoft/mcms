@@ -1,0 +1,48 @@
+﻿@using Kendo.Mvc.UI
+@using MCMS.Common.Models.ViewModels
+@using Mcms.Plugins.AdminSiteRedirect.Models
+@model SiteRedirectModel
+
+@Html.HiddenFor(model => model.Id)
+<div class="form-group">
+    @Html.LabelFor(model => model.PageId, new { @class = "col-sm-3 control-label" })
+    <div class="col-sm-6">
+        @Html.DropDownListFor(x => x.PageId, ViewData["Sites"] as IEnumerable<SelectListItem>, new { @class = "form-control" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.LocalAddress, new { @class = "col-sm-3 control-label" })
+    <div class="col-sm-6">
+        @Html.TextBoxFor(model => model.LocalAddress, new { @class = "form-control" })
+        <p class="help-block">Örn: /my-old-url</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.RouteAddress, new { @class = "col-sm-3 control-label" })
+    <div class="col-sm-6">
+        @Html.TextBoxFor(model => model.RouteAddress, new { @class = "form-control" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.IsTemporary, new { @class = "col-sm-3 control-label" })
+    <div class="col-sm-6">
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(model => model.IsTemporary)
+            </label>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.TransferQuerystring, new { @class = "col-sm-3 control-label" })
+    <div class="col-sm-6">
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(model => model.TransferQuerystring)
+            </label>
+        </div>
+    </div>
+</div>
+
+
+

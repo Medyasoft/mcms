@@ -1,0 +1,46 @@
+﻿@using Kendo.Mvc.UI
+@using MCMS.Common.Models.ViewModels
+@using Mcms.Plugins.AdminSiteRedirect.Models
+
+@{
+    ViewBag.Title = "Listeler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@ViewBag.Result
+
+<div id="wrap">
+    <div class="container">
+        <div class="col-xs-12" style="padding: 0px; margin-bottom: 10px;">
+            <a href="/Unigate/AdminSiteRedirect/SiteRedirect/New/" class="btn btn-success" style="float: right; margin-right: 5px;">Yeni Ekle</a>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                    
+                        <form action="/unigate/AdminSiteRedirect/SiteRedirect/save" class="form-horizontal" enctype="multipart/form-data" id="pluginForm" method="post" name="pluginForm">
+                            @(Html.Kendo().Grid<SiteRedirectModel>()
+                            .Name("SiteRedirectGrid")
+                            .Columns(columns =>
+                            {
+                                columns.Bound(p => p.LocalAddress).Title("Eski Adres".Localize().ToHtmlString());
+                                columns.Bound(p => p.RouteAddress).Title("Yeni Adres").Width(300);
+                                columns.Bound(p => p.RouteValue).Title("Site").Width(300);
+                                columns.Bound(p => p.ContentId).ClientTemplate("<a href='" + Url.Action("Edit", "SiteRedirect") + "/#=Id #' class='fa fa-edit' title='" + "Düzenle".Localize() + "'></a>").Title("");
+                                columns.Command(commands =>
+                                {
+                                    commands.Destroy();
+                                }).Width(200);
+                            })
+                            .DataSource(dataSource => dataSource
+                                .Ajax()
+                                .Read(read => read.Action("SiteRedirects_Read", "SiteRedirect"))
+                                .Destroy("SiteRedirect_Delete", "SiteRedirect")
+                                .Model(i => i.Id(x => x.Id))
+                            ))
+                        </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
