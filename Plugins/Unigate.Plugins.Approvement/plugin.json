@@ -1,0 +1,6 @@
+﻿{
+    "PluginName": "ApprovementChange",
+    "Version": "1.0.0.0",
+    "CmsVersion": "1.0.0.0",
+    "Namespace": "Unigate.Plugins.Approvement.Controllers"
+}
