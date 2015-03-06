@@ -1,3 +1,5 @@
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate-public\Plugins\Unigate.Plugins.PageRedirect\obj\Debug\Unigate.Plugins.PageRedirect.pdb
+C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate-public\Plugins\Unigate.Plugins.PageRedirect\obj\Debug\Unigate.Plugins.PageRedirect.csprojResolveAssemblyReference.cache
 C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate-public\Plugins\Unigate.Plugins.PageRedirect\bin\Views\Web.config
 C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate-public\Plugins\Unigate.Plugins.PageRedirect\bin\plugin.json
 C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate-public\Plugins\Unigate.Plugins.PageRedirect\bin\Languages\Globalizationen.json
@@ -15,4 +17,3 @@ C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate-public\Plugins\Unigate.Plugin
 C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate-public\Plugins\Unigate.Plugins.PageRedirect\bin\Mcms.Sdk.dll
 C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate-public\Plugins\Unigate.Plugins.PageRedirect\bin\Mcms.UI.Framework.dll
 C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate-public\Plugins\Unigate.Plugins.PageRedirect\obj\Debug\Unigate.Plugins.PageRedirect.dll
-C:\Users\yilmaz.buhar\Desktop\MedyaSoftGit\unigate-public\Plugins\Unigate.Plugins.PageRedirect\obj\Debug\Unigate.Plugins.PageRedirect.pdb

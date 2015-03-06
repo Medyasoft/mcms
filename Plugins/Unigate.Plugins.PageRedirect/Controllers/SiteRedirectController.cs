@@ -6,6 +6,7 @@ using Mcms.UI.Framework.PluginAttribute;
 using MCMS.Common.Models.ViewModels;
 using System.Linq;
 using Kendo.Mvc.UI;
+using System;
 
 namespace Mcms.Plugins.AdminSiteRedirect.Controllers
 {
@@ -56,14 +57,14 @@ namespace Mcms.Plugins.AdminSiteRedirect.Controllers
             return View(new SiteRedirectModel());
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
             var sites = UnigateObject.Query("Page")
                 .WhereEqualTo("ParentPageId", null)
                 .ToList<PageViewModel>();
 
             var redirect = UnigateObject.Query("SiteRedirect")
-                .WhereEqualTo("Id", id)
+                .WhereEqualTo("ContentId", id)
                 .FirstOrDefault<SiteRedirectModel>();
 
             ViewData["Sites"] = sites.Select(x => new SelectListItem
@@ -81,7 +82,7 @@ namespace Mcms.Plugins.AdminSiteRedirect.Controllers
         {
             model.Title = model.RouteAddress + " -> " + model.LocalAddress;
 
-            if (model.Id == 0)
+            if (model.ContentId == Guid.Empty)
             {
                 Insert insertRedirect = UnigateObject.Insert("SiteRedirect", model);
                 var result = insertRedirect.Execute();
@@ -95,7 +96,7 @@ namespace Mcms.Plugins.AdminSiteRedirect.Controllers
                     .Column("LocalAddress", model.LocalAddress)
                     .Column("IsTemporary", model.IsTemporary)
                     .Column("TransferQuerystring", model.TransferQuerystring)
-                    .WhereEqualTo("Id", model.Id).Execute();
+                    .WhereEqualTo("ContentId", model.ContentId).Execute();
 
                 ViewBag.Result = result.ResultMessage;
             }

@@ -1,0 +1,61 @@
+﻿@using Kendo.Mvc.UI
+@using MCMS.Common.Models.ViewModels
+@using Mcms.Plugins.AdminSiteRedirect.Models
+@model SiteRedirectModel
+
+@{
+    ViewBag.Title = "Listeler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="/Areas/unigate/Static/v1/js/jquery.slugify.js"></script>
+<script type="text/javascript">
+    function showFilePicker(ListColumnId) {
+        $("#FilePicker" + ListColumnId).kendoWindow({
+            content: {
+                url: '/unigate/File/FilePicker?choose=True' + "&ListColumnId=" + ListColumnId,
+            },
+        });
+        var wnd = $("#FilePicker" + ListColumnId).data("kendoWindow");
+        wnd.center().open();
+    }
+    $(document).ready(function () {
+        $('input[data-field-name=Slug]').slugify('[data-field-name=Title]');
+    });
+</script>
+<div id="wrap">
+    <div id="page-heading">
+        <h1>Eklenti - Yeni</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="options"></div>
+                        <h4><i class="fa fa-code"></i>Site Yönlendirmesi</h4>
+                    </div>
+                    <div class="panel-body">
+                        <form action="/unigate/AdminSiteRedirect/SiteRedirect/save" class="form-horizontal" enctype="multipart/form-data" id="pluginForm" method="post" name="pluginForm">
+                            <input type="hidden" name="Name">
+                            @Html.Partial("_CreateOrUpdate", Model)
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <div class="btn-toolbar">
+                                            <button class="btn-primary btn" type="submit" value="Ekle" tabindex="-1">Kaydet</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

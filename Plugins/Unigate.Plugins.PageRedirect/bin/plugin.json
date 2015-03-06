@@ -1,0 +1,21 @@
+﻿{
+    "PluginName": "AdminSiteRedirect",
+    "Version": "1.0.0.0",
+    "CmsVersion": "1.0.0.0",
+    "Namespace": "Mcms.Plugins.AdminSiteRedirect.Controllers",
+    "Menu": {
+        "Title": "Yönlendirmeler",
+        "Icon": "fa fa-puzzle-piece",
+        "Items": [
+            {
+                "Key": "RedirectList",
+                "Action": "Index",
+                "Controller": "SiteRedirect",
+                "Title": "Yönlendirme Listesi",
+                "Role": "Admin",
+                "Icon": "fa fa-puzzle-piece"
+            }
+        ]
+    }
+
+}
