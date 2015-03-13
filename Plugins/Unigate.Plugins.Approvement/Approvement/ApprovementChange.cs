@@ -30,7 +30,7 @@ namespace Unigate.Plugins.Approvement.Approvement
         {
             var msg = new System.Net.Mail.MailMessage();
             SmtpClient sc = new SmtpClient();
-            sc.Port = 465;
+            sc.Port = 587;
             sc.Host = "smtp.gmail.com";
             sc.EnableSsl = true;
 
