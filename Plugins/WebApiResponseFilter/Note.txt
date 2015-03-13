@@ -1,1 +1,0 @@
-Lib klasöründeki dll dosyalarý unigate tarafýndan gelmelidir.
