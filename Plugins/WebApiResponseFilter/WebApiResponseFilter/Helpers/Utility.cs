@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Hosting;
+using WebApiResponseFilter.Helpers;
 
 namespace WebApiResponseFilter.Helpers
 {
@@ -21,12 +23,37 @@ namespace WebApiResponseFilter.Helpers
             foreach (var property in properties)
             {
                 var props = property.Split('.').ToList();
-                var prop = t.GetType().GetProperty(property.Split('.')[0]);
+                var currentProp = props[0];
+
+                List<string> listItems = null;
+                bool isList = false;
+                if (currentProp.Contains("[") && currentProp.Contains("]"))
+                {
+                    listItems = currentProp.Split('[')[1].Replace("]", "").Split(';').ToList();
+                    currentProp = currentProp.Split('[')[0];
+                    isList = true;
+                }
+
+                var prop = t.GetType().GetProperty(currentProp);
                 if (prop == null) continue;
 
-                if (property.Contains("."))
+                if (isList)
                 {
-                    var subPropName = property.Split('.')[0];
+                    List<dynamic> dynamicList = new List<dynamic>();
+
+                    foreach (var item in ((IList)prop.GetValue(t)))
+                    {
+                        string newProps = string.Join(".", props.GetRange(1, props.Count - 1));
+                        var o = CreateObject(item, listItems);
+                        dynamicList.Add(o);
+                    }
+
+                    dict[prop.Name] = dynamicList;
+                    //return dict;
+                }
+                else if (props.Count > 1)
+                {
+                    var subPropName = props[0];
                     PropertyInfo subProp = t.GetType().GetProperty(subPropName);
                     if (subProp == null) continue;
 

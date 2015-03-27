@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using WebApiResponseFilter.Helpers;
 
 namespace WebApiResponseFilter.ApiFilter
@@ -35,9 +37,6 @@ namespace WebApiResponseFilter.ApiFilter
 
                 if (propNameForMethod == null) return;
 
-                //actionExecutedContext.Response.Content.Headers.ContentType.MediaType = "application/json";
-                
-
                 Type type = objectContent.ObjectType;
                 object value = objectContent.Value;
 
@@ -51,19 +50,23 @@ namespace WebApiResponseFilter.ApiFilter
                     }
 
                     objectContent.Value = dynamicList;
+
                 }
                 else
                 {
                     objectContent.Value = Utility.CreateObject(value, propNameForMethod);
                 }
             }
+        }
 
-            //objectContent.Value = actionExecutedContext.Request.RequestUri.AbsolutePath;
+        private static JToken GetSubObject(JObject o, string prop)
+        {
+            return o[prop];
         }
 
         public static void OnActionExecuting(HttpActionContext actionContext)
         {
-            //actionContext.Response.Headers.Add("Content-Type", "application/json");
+
         }
     }
 }
