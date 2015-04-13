@@ -1,4 +1,4 @@
-Bu repository issue'lar, dokümanlar ve public plugin'ler için kullanılmaktadır. Katılım yapmak için bir şart yoktur, serbesttir.
+Bu repository issue'lar, dokümanlar ve public plugin'ler için kullanılmaktadır. Herkese açıktır, bir şart yoktur, serbesttir.
 
 Issue eklerken lütfen proje/müşteri adı paylaşmayın, kullanıcı/parola bilgisi vermeyin.
 
