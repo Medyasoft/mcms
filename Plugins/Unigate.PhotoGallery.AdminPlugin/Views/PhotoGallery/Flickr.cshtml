@@ -1,0 +1,251 @@
+﻿@using Kendo.Mvc.UI
+
+@using Unigate.PhotoGallery.AdminPlugin.Models
+@model List<FlickrPhoto>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .grid-holders {
+        width: 105%;
+        margin-left: -3%;
+        float: left;
+    }
+
+        .grid-holders .grid-item {
+            float: left;
+            list-style-type: none;
+        }
+
+    .grid-item, .gallery-item {
+        margin-bottom: 3%;
+        border-bottom: medium none;
+    }
+
+    .grid-item-inner {
+        -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+    }
+
+    .grid-holders .grid-item {
+        margin-left: 3%;
+    }
+
+    .grid-holders.col-2 .grid-item {
+        width: 46%;
+    }
+
+    .grid-holders.col-3 .grid-item {
+        width: 29.63%;
+    }
+
+    .grid-holders.col-4 .grid-item {
+        min-height: 300px;
+        width: 21%;
+    }
+
+    a.property-featured-images {
+        height: 200px;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .property-block {
+        border: 1px solid #eee;
+        -webkit-transition: all 0.3s ease 0.2s;
+        -moz-transition: all 0.3s ease 0.2s;
+        -ms-transition: all 0.3s ease 0.2s;
+        -o-transition: all 0.3s ease 0.2s;
+        transition: all 0.3s ease 0.1s;
+        background: #ffffff;
+    }
+
+    .property-block {
+        position: relative;
+    }
+
+        .property-block img {
+            width: 100%;
+        }
+
+    .property-info, .agent-info {
+        padding: 15px;
+        display: block;
+        border-bottom: 1px solid #efefef;
+    }
+
+    a.fa.fa-close.removeButton {
+        float: right;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $('.removeButton').on('click', function (e) {
+            e.preventDefault();
+            if (confirm("Fotoğrafı silmek istediğinize emin misiniz?")) {
+                var li = $(this).closest('li');
+                $.getJSON("/plugins/PhotoRemove", { "photoId": $(li).attr("id") }, $(li).remove());
+            }
+        });
+
+        $('.btnsubmit').on('click', function (e) {
+            $(".filetitle").css("border-color", " ");
+            $('#Album-Select').css("border-color", " ");
+            var hasError = false;
+            //Regexs
+            var emailReg = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
+            $(".filetitle").each(function (i) {
+                if ($(this).val() == '') {
+                    $(this).css("border-color", "#F00");
+                    hasError = true;
+                }
+            });
+            if ($('#Album-Select').val() == '') {
+                $('#Album-Select').css("border-color", "#F00");
+                hasError = true;
+            }
+            if (hasError == true) {
+                return false;
+            }
+        });
+    });
+</script>
+
+<div id="contentContainer" style="background:#ffffff;">
+    <div class="row">
+        <div class="container">
+            <div id="contentsPanel" class="panel">
+                <div class="panel-body" style="border: none !important; padding: 10px 10px 10px 10px; ">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home8">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <span style="font-size:25px;">@ViewBag.FlickrFullName Flickr Fotoğrafları</span>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            @using (Html.BeginForm("MoveFlickrPhotos", "PhotoGallery"))
+                            {
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        @if (Model != null && Model.Count > 0)
+                                        {
+                                            <ul id="ulFlickr" class="grid-holders col-4">
+                                                @foreach (var item in Model)
+                                                {
+                                                    <li class="grid-item type-rent" style="display: block;">
+                                                        <input id="hd_@item.PhotoId" name="hd_@item.PhotoId" type="hidden" value="@item.DownloadUrl" />
+                                                        <input id="hdt_@item.PhotoId" name="hdt_@item.PhotoId" type="hidden" value="@item.ViewUrl" />
+                                                        <div class="property-block">
+                                                            &nbsp;<input id="chc_@item.PhotoId" name="chc_@item.PhotoId" type="checkbox" title="Seç" />&nbsp;Seç
+                                                            <a href="@item.DownloadUrl" target="_blank" class="property-featured-images">
+                                                                <img src="@item.ViewUrl" alt="">
+                                                            </a>
+                                                            <div class="property-info">
+                                                                <span class="locations">
+                                                                    @if (Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableTitleField != null && !string.IsNullOrEmpty(Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableTitleField.Name))
+                                                                    {
+                                                                        <input id="Txt_@item.PhotoId" name="Txt_@item.PhotoId" type="text" class="@(Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableTitleField.IsReguired ? "filetitle" : "")" value="@item.Title" style="width:100%;" placeholder="@Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableTitleField.Title" />
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        Html.Raw((item.Title.Length > 30) ? item.Title : string.Empty);
+                                                                    }
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-5">&nbsp;</div>
+                                    <div class="col-xs-2"><div id="loading" style="height:50px"></div></div>
+                                    <div class="col-xs-5">&nbsp;</div>
+                                </div>
+                                <br />
+                                <div class="row" style="position: fixed; bottom: 0px; border-top-style: solid; border-top-width: 1px; border-top-color: lightgray;padding-top: 4px;background-color: whitesmoke;width: 100%;right: 9px;padding:5px 5px 5px 5px;">
+                                    <div class="col-xs-2">&nbsp;</div>
+                                    <div class="col-xs-3">Seçilen Resimlerin Eklenecekleri Albüm: </div>
+                                    <div class="col-xs-5">
+                                        @(
+ Html.Kendo().DropDownList()
+                                        .Name("Album-Select")
+                                        .OptionLabel(" ")
+                                        .DataTextField("Title")
+                                        .DataValueField("ContentId")
+                                        .BindTo(ViewBag.Albums)
+                                        .Value(ViewBag.SelectedAlbumId)
+                                        .HtmlAttributes(new { style = "width: 100%;" })
+                                        )
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <button type="submit" class="btnsubmit btn-success btn">
+                                            @("Değişiklikleri Kaydet".Localize())
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).scroll(function () {
+            //if ($(window).scrollTop() >= ($(document).height() - $(window).height()) * 0.7) {
+            if ($(window).scrollTop() >= ($(document).height() - $(window).height())) {
+                Sayfala();
+            }
+        });
+
+        var PageNo = 2;
+
+        function Sayfala() {
+
+            $('#loading').html("<span style='font-size:20px;'>Lütfen Bekleyiniz</span>");
+
+            $.ajax({
+                type: "Post",
+                url: "/plugins/GetFlickrPhotoPerPage",
+                data: "{'pageIndex':'" + PageNo + "'}",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: Sayfalas,
+                error: Sayfalae
+            })
+        };
+
+        function Sayfalas(data) {
+            $('#loading').html("");
+
+            var bilgi = "";
+            var sonHali = $('#ulFlickr').html();
+
+            for (var i = 0; i < data.length; i++) {
+                bilgi += "<li class='grid-item type-rent' style='display: block;'><div class='property-block'><a href='#' class='property-featured-images'><img src='" + data[i].ViewUrl + "' alt=''></a><div class='property-info'><span class='locations'><input id='Txt_" + data[i].PhotoId + "' name='Txt_" + data[i].PhotoId + "' type='text' class='@(Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableTitleField.IsReguired ? "filetitle" : "")' value='" + data[i].Title + "' style='width:100%;' placeholder='@(Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableTitleField.Title)' /></span></div></div></li>";
+            }
+
+            sonHali += bilgi;
+            $('#ulFlickr').html(sonHali);
+
+            PageNo++;
+        };
+
+        function Sayfalae() {
+            $('#loading').html("");
+            alert("Hata");
+        };
+    </script>

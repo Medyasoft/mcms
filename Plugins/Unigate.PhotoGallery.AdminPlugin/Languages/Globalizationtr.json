@@ -1,0 +1,17 @@
+﻿{
+    "Values": [
+		{
+		  "Key": "Yeni Albüm",
+		  "Value": "Yeni Albüm"
+		},
+        {
+		  "Key": "Göster",
+		  "Value": "Göster"
+		},
+        {
+		  "Key": "Değişiklikleri Kaydet",
+		  "Value": "Değişiklikleri Kaydet"
+		}
+	]
+}
+

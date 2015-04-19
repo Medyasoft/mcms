@@ -1,0 +1,36 @@
+﻿{
+    "PluginName": "Unigate.PhotoGallery.AdminPlugin",
+    "Version": "1.0.0.0",
+    "CmsVersion": "1.0.0.0",
+	"Namespace":"Unigate.PhotoGallery.AdminPlugin.Controllers",
+    "Menu": {
+        "Title": "Fotoğraf Yönetimi",
+        "Icon": "fa fa-puzzle-piece",
+        "Items": [
+            {
+                "Key": "AlbumsKey",
+                "Action": "Album",
+                "Controller": "PhotoGallery",
+                "Title": "Albümler",
+                "Role": "Admin",
+                "Icon": "fa fa-puzzle-piece"
+            },
+            {
+                "Key": "PhotosKey",
+                "Action": "Index",
+                "Controller": "PhotoGallery",
+                "Title": "Albüm Fotoğrafları",
+                "Role": "Admin",
+                "Icon": "fa fa-puzzle-piece"
+            },
+            {
+                "Key": "FlickrKey",
+                "Action": "Flickr",
+                "Controller": "PhotoGallery",
+                "Title": "Flickr Fotoğrafları",
+                "Role": "Admin",
+                "Icon": "fa fa-puzzle-piece"
+            }
+        ]
+    }
+}

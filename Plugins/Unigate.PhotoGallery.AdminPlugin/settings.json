@@ -1,0 +1,52 @@
+﻿{
+    "AlbumListTableName": "K_Albums",
+    "PhotoListTableName": "K_AlbumsImages",
+    "PhotoListTableTitleField": {
+        "Name": "Title",
+        "Title": "Başlık",
+        "MaxLenght": 256,
+        "IsReguired": true,
+        "DefaultValue": "FileName"
+    },
+    "PhotoListTablePhotoField": {
+        "Name": "Images",
+        "Title": "Fotoğraf",
+        "MaxLenght": null,
+        "IsReguired": true,
+        "DefaultValue": null
+    },
+	"PhotoListTableThumbnailField": null,
+    //"PhotoListTableThumbnailField": {
+    //    "Name": "Thumbnail",
+    //    "Title": "Küçük Resim",
+    //    "MaxLenght": null,
+    //    "IsReguired": true,
+    //    "DefaultValue": null
+    //}    ,
+    "PhotoListTableOrderNoField": {
+        "Name": "OrderNo",
+        "Title": "SıraNo",
+        "MaxLenght": null,
+        "IsReguired": true,
+        "DefaultValue": null
+    },
+    "PhotoListTableAlbumRelationField": {
+        "Name": "ImagesAlbumContent",
+        "Title": "Albüm",
+        "MaxLenght": null,
+        "IsReguired": true,
+        "DefaultValue": null
+    },
+    "PhotoSize": null,
+	"ThumbnailPhotoSize" : null,
+    //"PhotoSize" :  {
+    //        "Width": "1024",
+    //        "Height": "768"
+    //    },
+    //"ThumbnailPhotoSize" :  {
+    //        "Width": "157",
+    //        "Height": "105"
+    //    },
+    "FlickrAPIKey" :  "d962c20d7a505c63b5123868f0ef06c0",
+    "FlickrUserName" :  "KadikoyBelediye"
+}

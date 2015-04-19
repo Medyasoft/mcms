@@ -1,0 +1,245 @@
+﻿@using Kendo.Mvc.UI
+@using Unigate.PhotoGallery.AdminPlugin.Models
+@model List<PhotoViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link rel="stylesheet" href="/Modules/Plugins/@Unigate.PhotoGallery.AdminPlugin.Manager.PluginProperties.PluginName/Assets/dropzonejs/dropzone.css"><!-- DropZoneJS -->
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="/Modules/Plugins/@Unigate.PhotoGallery.AdminPlugin.Manager.PluginProperties.PluginName/Assets/dropzonejs/dropzone.js"></script><!-- DropZoneJS -->
+
+<style>
+    .grid-holders {
+        width: 105%;
+        margin-left: -3%;
+        float: left;
+    }
+
+        .grid-holders .grid-item {
+            float: left;
+            list-style-type: none;
+        }
+
+    .grid-item, .gallery-item {
+        margin-bottom: 3%;
+        border-bottom: medium none;
+    }
+
+    .grid-item-inner {
+        -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+    }
+
+    .grid-holders .grid-item {
+        margin-left: 3%;
+    }
+
+    .grid-holders.col-2 .grid-item {
+        width: 46%;
+    }
+
+    .grid-holders.col-3 .grid-item {
+        width: 29.63%;
+    }
+
+    .grid-holders.col-4 .grid-item {
+        min-height: 300px;
+        width: 21%;
+    }
+
+    a.property-featured-images {
+        height: 200px;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .property-block {
+        border: 1px solid #eee;
+        -webkit-transition: all 0.3s ease 0.2s;
+        -moz-transition: all 0.3s ease 0.2s;
+        -ms-transition: all 0.3s ease 0.2s;
+        -o-transition: all 0.3s ease 0.2s;
+        transition: all 0.3s ease 0.1s;
+        background: #ffffff;
+    }
+
+    .property-block {
+        position: relative;
+    }
+
+        .property-block img {
+            width: 100%;
+        }
+
+    .property-info, .agent-info {
+        padding: 15px;
+        display: block;
+        border-bottom: 1px solid #efefef;
+    }
+
+    a.fa.fa-close.removeButton {
+        float: right;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $('.removeButton').on('click', function (e) {
+            e.preventDefault();
+            if (confirm("Fotoğrafı silmek istediğinize emin misiniz?")) {
+                var li = $(this).closest('li');
+                $.getJSON("/plugins/PhotoRemove", { "photoId": $(li).attr("id") }, $(li).remove());
+            }
+        });
+
+        $('.btnsubmit').on('click', function (e) {
+            $(".filetitle").css("border-color", " ");
+            var hasError = false;
+            //Regexs
+            var emailReg = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
+            $(".filetitle").each(function (i) {
+                if ($(this).val() == '') {
+                    $(this).css("border-color", "#F00");
+                    hasError = true;
+                }
+            });
+            if (hasError == true) {
+                return false;
+            }
+        });
+    });
+
+    $(function () {
+        $("#imageboxes").sortable({
+            stop: function (e, ui) {
+                $("#imageboxes li").each(function () {
+                    var deger = $(this).index() + 1;
+                    $(this).find("input.orderno").val(deger);
+
+                });
+            }
+        });
+        $("#imageboxes").disableSelection();
+    });
+</script>
+
+<div id="contentContainer" style="background:#ffffff;">
+    <div class="row">
+        <div class="container">
+            <div id="contentsPanel" class="panel">
+                <div class="panel-body" style="border: none !important; padding: 10px 10px 10px 10px; ">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home8">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <span style="font-size:25px;">Albüm Fotoğrafları</span>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                @using (Html.BeginForm())
+                                {
+                                    <div class="col-xs-2">&nbsp;</div>
+                                    <div class="col-xs-1">
+                                        <span>Albüm: </span>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        @(
+ Html.Kendo().DropDownList()
+                                        .Name("Album-Select")
+                                        .OptionLabel(" ")
+                                        .DataTextField("Title")
+                                        .DataValueField("ContentId")
+                                        .BindTo(ViewBag.Albums)
+                                        .Value(ViewBag.SelectedAlbumId)
+                                        .HtmlAttributes(new { style = "width: 100%;" })
+                                        )
+                                    </div>
+                                    <div class="col-xs-1">
+                                        <button type="submit" class=" btn-primary btn">
+                                            @("Getir".Localize())
+                                        </button>
+                                    </div>
+                                    <div class="col-xs-2">&nbsp;</div>
+                                }
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-xs-2">&nbsp;</div>
+                                <div class="col-xs-8">
+                                    @if (ViewBag.SelectedAlbumId != null && ViewBag.SelectedAlbumId != string.Empty)
+                                    {
+                                        <form action="@Url.Action("Upload", "PhotoGallery", new { albumId = ViewBag.SelectedAlbumId })" class="dropzone"></form>
+                                    }
+                                    else
+                                    {
+                                        <span style="color:red;">Resim yüklemek için önce Albüm seçmelisiniz.</span>
+                                    }
+                                </div>
+                                <div class="col-xs-2">&nbsp;</div>
+                            </div>
+                            @if (ViewBag.SelectedAlbumId != null && ViewBag.SelectedAlbumId != string.Empty)
+                            {
+                                <br />
+                                using (Html.BeginForm("SaveChanges", "PhotoGallery"))
+                                {
+                                    <input id="hdAlbumId" name="hdAlbumId" type="hidden" value="@ViewBag.SelectedAlbumId" />
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            @if (Model != null && Model.Count > 0)
+                                            {
+                                                <ul id="imageboxes" class="grid-holders col-4">
+                                                    @foreach (var item in Model)
+                                                    {
+                                                        <li id="@item.Id" class="grid-item type-rent">
+                                                            @if (Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableTitleField != null && !string.IsNullOrEmpty(Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableTitleField.Name))
+                                                            {
+                                                                <input id="Hd_@item.Id" name="Hd_@item.Id" class="orderno" type="hidden" value="@item.OrderNo">
+                                                            }
+                                                            <div class="property-block">
+                                                                <a href="#" class="fa fa-close removeButton">Sil</a>
+                                                                <a href="@item.Photo" target="_blank" class="property-featured-images">
+                                                                    <img src="@item.Photo" alt="">
+                                                                </a>
+                                                                @if (Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableTitleField != null && !string.IsNullOrEmpty(Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableTitleField.Name))
+                                                                {
+                                                                    <div class="property-info">
+                                                                        <span class="locations">
+                                                                            <input id="Txt_@item.Id" name="Txt_@item.Id" type="text" class="@(Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableTitleField.IsReguired ? "filetitle" : "")" value="@item.Title" style="width:100%;" placeholder="@Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableTitleField.Title" />
+                                                                        </span>
+                                                                    </div>
+                                                                }
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            }
+                                        </div>
+                                    </div>
+                                   if (Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableOrderNoField != null && !string.IsNullOrEmpty(Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableOrderNoField.Name) && Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableOrderNoField != null && !string.IsNullOrEmpty(Unigate.PhotoGallery.AdminPlugin.Manager.Settings.Current.PhotoListTableOrderNoField.Name))
+                                    {
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <button type="submit" class="btnsubmit btn-success btn" style="float:right">
+                                                    @("Değişiklikleri Kaydet".Localize())
+                                                </button>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
