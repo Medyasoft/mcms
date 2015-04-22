@@ -1,6 +1,6 @@
 **Unigate issue girme kılavuzu:**
 
-Buraya girilen issue'lar aracısız olarak doğrudan Unigate core geliştiricilere ulaşmaktadır. Ürünün hatasız ve kullanışlı olması için herşeyi yapmaya hazırız. Issue olarak girdiğiniz her konu bu yolda bize yardımcı olmaktadır. Lütfen issue'larınızı gönül rahatlığıyla paylaşın. Girebileceğiniz issue türleri:
+Buraya girilen issue'lar aracısız olarak doğrudan Unigate core geliştiricilere ulaşmaktadır. Issue olarak girdiğiniz her konu Unigate'in gelişimine katkı sağlamaktadır. Lütfen issue'larınızı gönül rahatlığıyla paylaşın. Girebileceğiniz issue türleri:
 
 
 - Soru
