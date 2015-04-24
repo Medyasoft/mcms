@@ -1,0 +1,56 @@
+﻿{
+    "PluginName": "ForgotPassword",
+    "Version": "1.0.0.0",
+    "CmsVersion": "1.0.0.0",
+    "Namespace": "Mcms.Plugins.ForgotPassword.Controllers",
+    "Properties": [
+        {
+            "Name": "Mail Body",
+            "Key": "MailBody",
+            "Value": "Merhabalar, Şifre Bilgileriniz Aşağıdadır <br>",
+            "Type": "Content"
+        },
+        {
+            "Name": "Mail Title",
+            "Key": "MailTitle",
+            "Value": "x - Şifre İsteği",
+            "Type": "Content"
+        },
+        {
+            "Name": "Mail Link Url",
+            "Key": "MailLinkUrl",
+            "Value": "http://x.com/plugins/ResetPassword",
+            "Type": "Content"
+        },
+        {
+            "Name": "SmtpPort",
+            "Key": "SmtpPort",
+            "Value": "587",
+            "Type": "Content"
+        },
+        {
+            "Name": "SmtpServer",
+            "Key": "SmtpServer",
+            "Value": "mail.x.com",
+            "Type": "Content"
+        },
+        {
+            "Name": "SecureConnection",
+            "Key": "SecureConnection",
+            "Value": "false",
+            "Type": "Content"
+        },
+        {
+            "Name": "MailUserName",
+            "Key": "MailUserName",
+            "Value": "x@x.com",
+            "Type": "Content"
+        },
+        {
+            "Name": "MailPassword",
+            "Key": "MailPassword",
+            "Value": "xxxx",
+            "Type": "Content"
+        }
+    ]
+}

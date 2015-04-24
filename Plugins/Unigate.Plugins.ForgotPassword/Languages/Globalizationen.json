@@ -1,0 +1,45 @@
+﻿{
+    "Values": [
+        {
+            "Key": "Lütfen mail adresinizi giriniz",
+            "Value": "Lütfen mail adresinizi giriniz"
+        },
+        {
+            "Key": "Mail formatınız uygun değil",
+            "Value": "Mail formatınız uygun değil"
+        },
+        {
+            "Key": "Mail adresiniz sisteme kayıtlı değil",
+            "Value": "Mail adresiniz sisteme kayıtlı değil"
+        },
+        {
+            "Key": "Şifremi Yenile",
+            "Value": "Refresh Password"
+        },
+        {
+            "Key": "Yeni Şifreniz",
+            "Value": "New Password"
+        },
+        {
+            "Key": "Yeni Şifreniz Tekrar",
+            "Value": "Confirm New Password"
+        },
+        {
+            "Key": "Şifreniz başarıyla değiştirildi",
+            "Value": "Your password has been changed successfully"
+        },
+        {
+            "Key": "Kaydet",
+            "Value": "Save"
+        },
+        {
+            "Key": "MailBody",
+            "Value": "Hi, please click the following link to reset your Wahooy password !"
+        }
+         ,
+        {
+            "Key": "Şifre Değiştirme Ekranı",
+            "Value": "Şifre Değiştirme Ekranı"
+        }
+    ]
+}

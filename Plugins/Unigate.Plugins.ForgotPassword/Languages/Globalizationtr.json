@@ -1,0 +1,44 @@
+﻿{
+    "Values": [
+        {
+            "Key": "Lütfen mail adresinizi giriniz",
+            "Value": "Lütfen mail adresinizi giriniz"
+        },
+        {
+            "Key": "Mail formatınız uygun değil",
+            "Value": "Mail formatınız uygun değil"
+        },
+        {
+            "Key": "Mail adresiniz sisteme kayıtlı değil",
+            "Value": "Mail adresiniz sisteme kayıtlı değil"
+        },
+        {
+            "Key": "Şifremi Yenile",
+            "Value": "Şifremi Yenile"
+        },
+        {
+            "Key": "Yeni Şifreniz",
+            "Value": "Yeni Şifreniz"
+        },
+        {
+            "Key": "Yeni Şifreniz Tekrar",
+            "Value": "Yeni Şifreniz Tekrar"
+        },
+        {
+            "Key": "Şifreniz başarıyla değiştirildi",
+            "Value": "Şifreniz başarıyla değiştirildi"
+        },
+        {
+            "Key": "Kaydet",
+            "Value": "Kaydet"
+        },
+        {
+            "Key": "MailBody",
+            "Value": "Merhaba, Wahooy şifrenizi yenilemek için lütfen linki tıklayın!"
+        },
+        {
+            "Key": "Şifre Değiştirme Ekranı",
+            "Value": "Reset Your Password"
+        }
+    ]
+}

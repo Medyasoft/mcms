@@ -11,9 +11,9 @@
                 "Key": "RedirectList",
                 "Action": "Index",
                 "Controller": "SiteRedirect",
-                "Title": "Yönlendirme Listesi",
+                "Title": "Yönlendirmeler",
                 "Role": "Admin",
-                "Icon": "fa fa-puzzle-piece"
+                "Icon": "fa fa-random"
             }
         ]
     }
