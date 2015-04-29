@@ -47,18 +47,25 @@ CREATE TABLE [dbo].[SiteRedirectHistory](
 GO
 
 
-CREATE TRIGGER [dbo].[SiteRedirectChangeTrigger]
-   ON  [dbo].[SiteRedirect]
-   AFTER INSERT,DELETE,UPDATE
-AS 
-BEGIN
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
-	SET NOCOUNT ON;
-	UPDATE [dbo].[SiteMapLastUpdate]
-	SET [SiteRedirectLastUpdateDate] = GETDATE()
-    -- Insert statements for trigger here
+--CREATE TRIGGER [dbo].[SiteRedirectChangeTrigger]
+--   ON  [dbo].[SiteRedirect]
+--   AFTER INSERT,DELETE,UPDATE
+--AS 
+--BEGIN
+--	-- SET NOCOUNT ON added to prevent extra result sets from
+--	-- interfering with SELECT statements.
+--	SET NOCOUNT ON;
+--	UPDATE [dbo].[SiteMapLastUpdate]
+--	SET [SiteRedirectLastUpdateDate] = GETDATE()
+--    -- Insert statements for trigger here
 
-END
-GO
+--END
+--GO
+
+
+DECLARE @triggerName VARCHAR(100)
+SET @triggerName= (select top 1 name from sys.triggers where parent_id=(select object_Id from sys.tables where name ='SiteRedirect'))
+
+IF @triggerName IS NOT NULL
+	EXEC('DROP TRIGGER '+ @triggerName)
 

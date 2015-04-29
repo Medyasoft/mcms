@@ -80,7 +80,7 @@ namespace Mcms.Plugins.AdminSiteRedirect.Controllers
         [HttpPost]
         public ActionResult Save(SiteRedirectModel model)
         {
-            model.Title = model.RouteAddress + " -> " + model.LocalAddress;
+            model.Title = model.LocalAddress;
 
             if (model.ContentId == Guid.Empty)
             {
@@ -100,6 +100,10 @@ namespace Mcms.Plugins.AdminSiteRedirect.Controllers
 
                 ViewBag.Result = result.ResultMessage;
             }
+
+            //SiteMapLastUpdate tablosu güncelleniyor.
+            UnigateObject.Update("SiteMapLastUpdate")
+                .Column("SiteRedirectLastUpdateDate", DateTime.Now).Execute();
 
             return RedirectToAction("Index");
         }
