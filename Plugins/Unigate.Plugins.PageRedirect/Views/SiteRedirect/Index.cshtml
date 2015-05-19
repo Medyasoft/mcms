@@ -25,7 +25,7 @@
                                 columns.Bound(p => p.LocalAddress).Title("Eski Adres".Localize().ToHtmlString());
                                 columns.Bound(p => p.RouteAddress).Title("Yeni Adres").Width(300);
                                 columns.Bound(p => p.RouteValue).Title("Site").Width(300);
-                                columns.Bound(p => p.ContentId).ClientTemplate("<a href='" + Url.Action("Edit", "SiteRedirect") + "/#=Id #' class='fa fa-edit' title='" + "Düzenle".Localize() + "'></a>").Title("");
+                                columns.Bound(p => p.ContentId).ClientTemplate("<a href='" + Url.Action("Edit", "SiteRedirect") + "/#=ContentId #' class='fa fa-edit' title='" + "Düzenle".Localize() + "'></a>").Title("");
                                 columns.Command(commands =>
                                 {
                                     commands.Destroy();

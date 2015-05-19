@@ -18,7 +18,7 @@ using MCMS.Common.Runtime.Mvc;
 
 namespace Mcms.Plugins.AdminSiteRedirect.Module
 {
-    [Dependency(typeof(IHttpApplicationEvents), Key = "SiteRedirectModule", Order = 1),]
+    [Dependency(typeof(IHttpApplicationEvents), Key = "SiteRedirectModule", Order = 1)]
     public class SiteRedirectModule : HttpApplicationEvents
     {
         private const string AppRedirectName = "REDIRECTS";

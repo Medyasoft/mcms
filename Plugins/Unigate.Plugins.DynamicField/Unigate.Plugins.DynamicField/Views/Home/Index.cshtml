@@ -1,0 +1,6 @@
+﻿@Html.Partial("_Assets")
+
+<h1>@Html.Editable("Field1")</h1><!-- varsayılan tip text -->
+<h3>@Html.Editable("Field2", "text")</h3>
+<section>@Html.Raw(Html.Editable("Field3","wysihtml5",false))</section><!-- Sayfa bazlı içerik devre dışı -->
+

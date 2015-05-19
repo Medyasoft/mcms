@@ -101,9 +101,8 @@ namespace Mcms.Plugins.AdminSiteRedirect.Controllers
                 ViewBag.Result = result.ResultMessage;
             }
 
-            //SiteMapLastUpdate tablosu güncelleniyor.
             UnigateObject.Update("SiteMapLastUpdate")
-                .Column("SiteRedirectLastUpdateDate", DateTime.Now).Execute();
+                .Column("SiteRedirectLastUpdateDate", DateTime.Now.ToString()).Execute();
 
             return RedirectToAction("Index");
         }

@@ -1,3 +1,4 @@
+IF NOT EXISTS (select * from sysobjects where name='SiteRedirect' and xtype='U')
 CREATE TABLE [dbo].[SiteRedirect](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[ContentId] [uniqueidentifier] NOT NULL,
@@ -22,6 +23,7 @@ CREATE TABLE [dbo].[SiteRedirect](
 
 GO
 
+IF NOT EXISTS (select * from sysobjects where name='SiteRedirectHistory' and xtype='U')
 CREATE TABLE [dbo].[SiteRedirectHistory](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[ContentId] [uniqueidentifier] NOT NULL,
@@ -68,4 +70,3 @@ SET @triggerName= (select top 1 name from sys.triggers where parent_id=(select o
 
 IF @triggerName IS NOT NULL
 	EXEC('DROP TRIGGER '+ @triggerName)
-
