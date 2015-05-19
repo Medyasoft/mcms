@@ -21,9 +21,4 @@ namespace Unigate.Plugins.DynamicField.Controllers
 
 
     }
-
-    //public class CustomUIActionAttribute : UIActionAttribute
-    //{
-    //    override 
-    //}
 }
