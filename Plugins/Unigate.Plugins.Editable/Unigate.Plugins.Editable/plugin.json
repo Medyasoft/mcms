@@ -1,0 +1,13 @@
+﻿{
+    "PluginName": "Editable",
+    "Version": "1.0.0.0",
+    "CmsVersion": "1.0.0.0",
+    "Namespace": "Unigate.Plugins.Editable.Controllers",
+    "Properties": [
+        {
+            "Name": "View dosyasının adını yazın",
+            "Key": "ViewFile",
+            "Type": "Content"
+        }
+    ]
+}

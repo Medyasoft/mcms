@@ -1,0 +1,28 @@
+﻿{
+    "Values": [
+		{
+		  "Key": "NewsLink",
+		  "Value": "/tr/haberler/"
+		},
+		{
+		  "Key": "NewsDetailLink",
+		  "Value": "/tr/haberler/haber-detay/"
+		},
+		{
+		  "Key": "Detail",
+		  "Value": "Detay"
+		},
+		{
+		  "Key": "News",
+		  "Value": "Haberler"
+		},
+		{
+		  "Key": "ClickForNews",
+		  "Value": "Tüm Haberler için Tıklayın..."
+		},
+		{
+		  "Key": "OtherNews",
+		  "Value": "Diğer Haberler"
+		}
+	]
+}
