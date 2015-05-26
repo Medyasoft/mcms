@@ -178,3 +178,4 @@ UpgradeLog*.htm
 FakesAssemblies/
 Plugins/Unigate.Plugins.PageRedirect/bin/
 Plugins/Unigate.Plugins.PageRedirect/obj/
+Plugins/unigate/Presentation/Mcms.UI/Modules/Plugins/DynamicField/Views/Shared/_Assets - Copy.cshtml
