@@ -34,7 +34,7 @@ namespace Unigate.Plugins.Editable
             if (field != null)
                 field.SiteLanguageId = siteLanguageId;
 
-            var roleRepository = EngineContext.Current.Resolve<IRoleRepository>();
+            var roleRepository = DependencyResolver.Current.GetService<IRoleRepository>();
             var role = roleRepository.SelectRole("Admin");
             var currentUser = UserUtility.CurrentUser;
 

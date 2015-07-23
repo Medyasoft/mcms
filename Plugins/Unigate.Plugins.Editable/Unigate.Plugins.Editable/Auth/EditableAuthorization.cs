@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using Mcms.UI.Framework.Repository;
 using Mcms.UI.Framework.Utilities;
 using MCMS.Common.Runtime;
@@ -12,7 +13,7 @@ namespace Unigate.Plugins.Editable.Auth
     {
         public static bool Authorization()
         {
-            var roleRepository = EngineContext.Current.Resolve<IRoleRepository>();
+            var roleRepository = DependencyResolver.Current.GetService<IRoleRepository>();
             var role = roleRepository.SelectRole("Admin");
 
             var currentUser = UserUtility.CurrentUser;

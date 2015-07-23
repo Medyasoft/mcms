@@ -234,7 +234,6 @@
     <Content Include="lib\System.Web.WebPages.Deployment.dll" />
     <Content Include="lib\System.Web.WebPages.dll" />
     <Content Include="lib\System.Web.WebPages.Razor.dll" />
-    <Content Include="packages.config" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
