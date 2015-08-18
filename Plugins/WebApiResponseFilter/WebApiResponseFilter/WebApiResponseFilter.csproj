@@ -56,6 +56,7 @@
     <Compile Include="ApiFilter\CustomActionFilterAttribute.cs" />
     <Compile Include="Controllers\FilterHelperController.cs" />
     <Compile Include="ApiFilter\Events.cs" />
+    <Compile Include="Helpers\NodeTypes.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\Utility.cs" />

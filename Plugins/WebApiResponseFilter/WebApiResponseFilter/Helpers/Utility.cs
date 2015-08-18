@@ -26,45 +26,68 @@ namespace WebApiResponseFilter.Helpers
                 var currentProp = props[0];
 
                 List<string> listItems = null;
+                NodeTypes nodeType = NodeTypes.Property;
                 bool isList = false;
                 if (currentProp.Contains("[") && currentProp.Contains("]"))
                 {
                     listItems = currentProp.Split('[')[1].Replace("]", "").Split(';').ToList();
                     currentProp = currentProp.Split('[')[0];
                     isList = true;
+                    nodeType = NodeTypes.List;
+                }
+
+                if (currentProp.Contains("(") && currentProp.Contains(")"))
+                {
+                    listItems = currentProp.Split('(')[1].Replace(")", "").Split(';').ToList();
+                    currentProp = currentProp.Split('(')[0];
+                    nodeType = NodeTypes.SubProperty;
                 }
 
                 var prop = t.GetType().GetProperty(currentProp);
                 if (prop == null) continue;
 
-                if (isList)
+                if (nodeType == NodeTypes.List)
                 {
                     List<dynamic> dynamicList = new List<dynamic>();
 
                     foreach (var item in ((IList)prop.GetValue(t)))
                     {
-                        string newProps = string.Join(".", props.GetRange(1, props.Count - 1));
                         var o = CreateObject(item, listItems);
                         dynamicList.Add(o);
                     }
 
                     dict[prop.Name] = dynamicList;
-                    //return dict;
                 }
-                else if (props.Count > 1)
+                else if (nodeType == NodeTypes.SubProperty)
                 {
-                    var subPropName = props[0];
-                    PropertyInfo subProp = t.GetType().GetProperty(subPropName);
-                    if (subProp == null) continue;
-
-                    string newProps = string.Join(".", props.GetRange(1, props.Count - 1));
-                    dict[prop.Name] = CreateObject(subProp.GetValue(t), new List<string>() { newProps });
+                    var val = CreateObject(prop.GetValue(t), listItems);
+                    dict[currentProp] = val;
                 }
-                else
+                else 
                 {
                     var val = prop.GetValue(t);
                     dict[property] = val;
                 }
+
+                //if (isList)
+                //{
+                    
+                //    //return dict;
+                //}
+                //else if (props.Count > 1)
+                //{
+                //    var subPropName = props[0];
+                //    PropertyInfo subProp = t.GetType().GetProperty(subPropName);
+                //    if (subProp == null) continue;
+
+                //    string newProps = string.Join(".", props.GetRange(1, props.Count - 1));
+                //    dict[prop.Name] = CreateObject(subProp.GetValue(t), new List<string>() { newProps });
+                //}
+                //else
+                //{
+                //    var val = prop.GetValue(t);
+                //    dict[property] = val;
+                //}
             }
 
             return dict;
