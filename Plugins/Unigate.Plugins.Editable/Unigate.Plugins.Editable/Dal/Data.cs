@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Mcms.Sdk;
+using MCMS.Common.Models.ViewModels;
+using MCMS.Common.Result;
 
 namespace Unigate.Plugins.Editable.Dal
 {
@@ -11,6 +13,7 @@ namespace Unigate.Plugins.Editable.Dal
     {
         public static Field SaveField(Field field)
         {
+            MDataSourceResult result;
             var _field = UnigateObject.Query("Editable")
                            .WhereEqualTo("FieldKey", field.FieldKey)
                            .WhereEqualTo("SiteLanguageId", field.SiteLanguageId)
@@ -20,19 +23,22 @@ namespace Unigate.Plugins.Editable.Dal
 
             if (_field == null)
             {
-                UnigateObject.Insert<Field>("Editable", field)
-                    .Column("SiteLanguageId", field.SiteLanguageId)
-                    .Execute();
+                result = UnigateObject.Insert<Field>("Editable", field)
+                         .Column("SiteLanguageId", field.SiteLanguageId)
+                         .Execute();
+                _field = field;
             }
             else
             {
-                UnigateObject.Update("Editable")
-                    .Column("Value", field.Value)
-                    .WhereEqualTo("ContentId", _field.ContentId)
-                    .Execute();
+                result = UnigateObject.Update("Editable")
+                         .Column("Value", field.Value)
+                         .WhereEqualTo("ContentId", _field.ContentId)
+                         .Execute();
+                _field.Value = field.Value;
             }
-
-            return field;
+            if (result.ResultCode != ResultCode.Successfull)
+                _field.Errors = result.ResultMessage;
+            return _field;
         }
 
         public static Field GetField(string fieldName, Guid siteLanguageId, int pageId, string fieldType = "text", bool pageBased = true)

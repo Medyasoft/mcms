@@ -12,5 +12,6 @@ namespace Unigate.Plugins.Editable
         public string Value { get; set; }
         //public string FieldType { get; set; }
         public int PageId { get; set; }
+        public string Errors { get; set; }
     }
 }

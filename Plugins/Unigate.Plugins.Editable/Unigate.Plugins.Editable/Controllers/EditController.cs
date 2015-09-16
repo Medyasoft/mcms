@@ -30,7 +30,7 @@ namespace Unigate.Plugins.Editable.Controllers
         [ValidateInput(false)]
         public ActionResult Save(Field field)
         {
-            Data.SaveField(field);
+            field = Data.SaveField(field);
 
             return new JsonResult
             {
