@@ -31,7 +31,7 @@ namespace Unigate.Plugins.Editable.Dal
             else
             {
                 result = UnigateObject.Update("Editable")
-                         .Column("Value", field.Value)
+                         .Column("Value", field.Value ?? "&nbsp;")
                          .WhereEqualTo("ContentId", _field.ContentId)
                          .Execute();
                 _field.Value = field.Value;
