@@ -36,7 +36,7 @@ namespace Unigate.Plugins.Approvement.Approvement
 
             try
             {
-                sc.Credentials = new System.Net.NetworkCredential("testmedyasoft@gmail.com", "qwer1234.");
+                sc.Credentials = new System.Net.NetworkCredential("testmedyasoft@gmail.com", "....");
                 msg.To.Add(emil);
                 msg.From = new System.Net.Mail.MailAddress("testmedyasoft@gmail.com", "Onaylama Mesajı", Encoding.UTF8);
                 msg.Subject = "Mail Gönderme Testi";
